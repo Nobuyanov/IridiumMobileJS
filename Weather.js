@@ -8,8 +8,8 @@ var currentState;
    YAHOO_CONSUMER_KEY is a Client ID (Consumer Key) given in app profile
    YAHOO_CONSUMER_SECRET is a Client Secret (Consumer Secret) given in app profile   
 */
-var YAHOO_CONSUMER_KEY = "dj0yJmk9aFRZVHg4QlZzUTN6JnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PTZi";
-var YAHOO_CONSUMER_SECRET = "2b7577ecc1073d1318fd8658b51846ecdbc334ac";
+var YAHOO_CONSUMER_KEY = "key";
+var YAHOO_CONSUMER_SECRET = "secret";
     YAHOO_CONSUMER_SECRET += "&"; // needed for hmac-sha1
 // ****************************************************
 /*
@@ -222,7 +222,7 @@ function getWeatherData(){
    var oauthNonce = uniqid(Math.floor(Math.random() * (l_sMax - l_sMin)) + l_sMin);
 
    var oauth = "format=json" +
-                  "&location=" + encodeURIComponent("novokuznetsk") +
+                  "&location=" + encodeURIComponent("location") +
                   "&oauth_consumer_key=" + YAHOO_CONSUMER_KEY + 
                   "&oauth_nonce=" + oauthNonce +  
                   "&oauth_signature_method=HMAC-SHA1" +
@@ -242,7 +242,7 @@ function getWeatherData(){
          "oauth_version=\"" + "1.0" + "\""
       IR.GetDevice("yahoo").SendEx({ 
          Type: "GET",                                                                    
-         Url:  "/forecastrss?format=json&location=" + "novokuznetsk" + '&u=' + 'c',
+         Url:  "/forecastrss?format=json&location=" + "location" + '&u=' + 'c',
          Headers: {
             "Authorization": headerAuthorization
          },
